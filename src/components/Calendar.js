@@ -5,6 +5,7 @@ import './Calendar.css';
 
 const calendarViewDates = 42;
 const numRows = 6;
+const daysInWeek = 7;
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default class Calendar extends Component {
@@ -69,10 +70,10 @@ export default class Calendar extends Component {
         }
 
         var rows = [];
-        for (var i = 0; i < numRows; i++) {
+        for (var week = 0; week < numRows; week++) {
             var days = [];
-            for (var day = 0; day < 7; day++) {
-                days.push(this.state.dates[i*7+day]);
+            for (var day = 0; day < daysInWeek; day++) {
+                days.push(this.state.dates[week*daysInWeek+day]);
             }
 
             rows.push(days);
@@ -80,8 +81,12 @@ export default class Calendar extends Component {
 
         return (<table>
             <tbody>
-                { rows.map((row) => <tr>
-                    { row.map((date) => ( <td><CalendarDate date={date}/></td> )) }
+                { rows.map((row) => 
+                <tr key={row[0].toString()}>
+                    { row.map((date) => ( 
+                    <td key={date.toString()}>
+                        <CalendarDate key={date.toString()} date={date}/>
+                    </td> )) }
                 </tr> )}
             </tbody>
         </table>);
@@ -98,7 +103,9 @@ export default class Calendar extends Component {
                 <div className="row">
                     { dayNames }
                 </div>
-                { this.renderCalendarBody() }
+                <div className="row">
+                    { this.renderCalendarBody() }
+                </div>
             </div>
         )
     }
