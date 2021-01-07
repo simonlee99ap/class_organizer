@@ -9,10 +9,16 @@ const daysInWeek = 7;
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default class Calendar extends Component {
-    state = {
-        currYear: 0,
-        currMonth: 0,
-        dates: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            currYear: 0,
+            currMonth: 0,
+            dates: []
+        };
+
+        this.decMonth = this.decMonth.bind(this);
+        this.incMonth = this.incMonth.bind(this);
     }
 
     componentDidMount() {
@@ -20,12 +26,12 @@ export default class Calendar extends Component {
         this.setState( {currYear: now.getFullYear(), currMonth: now.getMonth()}, this.updateDates);
     }
 
-    getDateHeader = () => {
+    getDateHeader() {
         const currView = new Date(this.state.currYear, this.state.currMonth);
         return date.format(currView, "MMM YYYY");
     }
 
-    decMonth = () => {
+    decMonth() {
         var newMonth = this.state.currMonth;
         var newYear = this.state.currYear;
         if (this.state.currMonth === 0) {
@@ -37,7 +43,7 @@ export default class Calendar extends Component {
         this.updateDates();
     }
 
-    incMonth = () => {
+    incMonth() {
         var newMonth = this.state.currMonth;
         var newYear = this.state.currYear;
         if (this.state.currMonth === 11) {
@@ -48,7 +54,7 @@ export default class Calendar extends Component {
         this.setState({ currYear: newYear, currMonth: newMonth + 1 }, this.updateDates);
     }
 
-    updateDates = () => {
+    updateDates() {
         var date = new Date(this.state.currYear, this.state.currMonth, 1);
         // closest sunday
         while (date.getDay() !== 0) {
@@ -61,10 +67,10 @@ export default class Calendar extends Component {
             date.setDate(date.getDate() + 1);
         }
 
-        this.setState( {dates: newDates });
+        this.setState({ dates: newDates });
     }
 
-    renderCalendarBody = () => {
+    renderCalendarBody() {
         if (this.state.dates.length === 0) {
             return (null);
         }
