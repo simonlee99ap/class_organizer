@@ -1,6 +1,6 @@
 const initState = [];
 
-export default function classReducer(state = initState, action) {
+export default function courseReducer(state = initState, action) {
     switch (action.type) {
         default:
             return state;

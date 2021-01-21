@@ -4,16 +4,16 @@ import { useSelector } from 'react-redux'
 
 import TaskItem from './TaskItem'
 
-const ClassItem = props => {
+const CourseItem = props => {
     const [displayMode, setDisplayMode] = useState(true);
     const tasks = useSelector(state => state.tasks.filter(
-        task => task.classId === props.classObj.id
+        task => task.courseId === props.course.id
     ));
 
     return (
         <div>
             <button onClick={() => setDisplayMode(!displayMode)}>btn</button>
-            { props.classObj.name }
+            { props.course.name }
             { displayMode && 
              tasks.map(task => <TaskItem task={task} />)
             }
@@ -21,8 +21,8 @@ const ClassItem = props => {
     )
 }
 
-ClassItem.propTypes = {
-    classObj: PropTypes.object.isRequired
+CourseItem.propTypes = {
+    course: PropTypes.object.isRequired
 }
 
-export default ClassItem
+export default CourseItem

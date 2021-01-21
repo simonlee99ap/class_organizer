@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
 import taskReducer from './taskReducer'
-import classReducer from './classReducer'
+import courseReducer from './courseReducer'
 
 const rootReducer = combineReducers({
     tasks: taskReducer,
-    classes: classReducer
+    courses: courseReducer
 })
 
 export default rootReducer
