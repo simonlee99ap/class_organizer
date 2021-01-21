@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Calendar from './components/Calendar';
+import ClassPanel from "./components/ClassPanel";
 import './App.css';
 
 export class App extends Component {
@@ -7,6 +8,7 @@ export class App extends Component {
     return (
       <div className="App">
         <Calendar />
+        <ClassPanel />
       </div>
     )
   }
