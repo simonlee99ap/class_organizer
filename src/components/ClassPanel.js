@@ -13,4 +13,3 @@ const ClassPanel = () => {
 }
 
 export default ClassPanel
-

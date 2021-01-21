@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Calendar from './components/Calendar';
-import ClassPanel from "./components/ClassPanel";
-import './App.css';
+import React, { Component } from 'react'
+import Calendar from './components/Calendar'
+import ClassPanel from './components/ClassPanel'
+import './App.css'
 
 export class App extends Component {
   render() {
