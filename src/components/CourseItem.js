@@ -15,7 +15,7 @@ const CourseItem = props => {
             <button onClick={() => setDisplayMode(!displayMode)}>btn</button>
             { props.course.name }
             { displayMode && 
-             tasks.map(task => <TaskItem task={task} />)
+             tasks.map(task => <TaskItem key={task.id} task={task} />)
             }
         </div>
     )
