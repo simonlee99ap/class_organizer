@@ -27,3 +27,15 @@ export async function loadTasks(dispatch, getState) {
     const response = await axios.get("http://localhost:8080/tasks/")
     dispatch({ type: LOAD_TASKS, payload: response.data._embedded.taskList })
 }
+
+export function addTask(taskName, courseId, dueDate) {
+    return async function addTaskThunk(dispatch, getState) {
+        const newTask = { name: taskName, finished: false, courseId: courseId, date: dueDate }
+        const response = await axios.post(
+            "http://localhost:8080/tasks/",
+            newTask
+        )
+        console.log(response)
+        dispatch({ type: NEW_TASK, payload: newTask })
+    }
+}

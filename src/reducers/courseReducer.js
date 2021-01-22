@@ -27,7 +27,6 @@ export function addCourse(courseName, color) {
             "http://localhost:8080/courses/",
             newCourse
         )
-        console.log("wee")
         console.log(response)
         dispatch({ type: ADD_COURSE, payload: newCourse })
     }

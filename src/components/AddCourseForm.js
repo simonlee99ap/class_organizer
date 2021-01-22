@@ -17,20 +17,23 @@ const AddCourseForm = () => {
     }
 
     return (
-        <div>
-            Course Name: 
-            <input 
-                type="text" 
-                value={courseText}
-                onChange={e => setCourseText(e.target.value)} />
-            Course Color: 
-            <input 
-                type="text" 
-                value={colorText}
-                onChange={e => setColorText(e.target.value)} />
-            <button
-                onClick={handleSubmit}>submit</button>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <label>
+                Course: 
+                <input 
+                    type="text" 
+                    value={courseText}
+                    onChange={e => setCourseText(e.target.value)} />
+            </label>
+            <label>
+                Color: 
+                <input 
+                    type="text" 
+                    value={colorText}
+                    onChange={e => setColorText(e.target.value)} />
+            </label>
+            <input type="submit" value="Submit" />
+        </form>
     )
 }
 
