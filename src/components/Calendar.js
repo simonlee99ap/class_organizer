@@ -87,6 +87,9 @@ export default class Calendar extends Component {
 
         return (<table>
             <tbody>
+                <tr className="header">
+                    { dayNames.map(name => <th key={name}>{name}</th>) }
+                </tr>
                 { rows.map((row) => 
                 <tr key={row[0].toString()}>
                     { row.map((date) => ( 
@@ -106,12 +109,7 @@ export default class Calendar extends Component {
                     { this.getDateHeader() }
                     <button onClick={ this.incMonth }>right</button>
                 </div>
-                <div className="row">
-                    { dayNames }
-                </div>
-                <div className="row">
-                    { this.renderCalendarBody() }
-                </div>
+                { this.renderCalendarBody() }
             </div>
         )
     }

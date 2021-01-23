@@ -19,6 +19,35 @@ a {
   padding: 5px;
 }
 
+.calendar {
+  width: 75%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+td {
+  border: 1px solid #565656;
+  width: 14%;
+  height: 90px;
+  background-color: #171717;
+}
+
+.calendarDate {
+  height: 100%;
+}
+
+.dateNumber {
+  color: white;
+  text-align: right;
+  padding: 3px;
+}
+
 .coursePanel {
   width: 25%;
   padding: 5px;
@@ -47,11 +76,6 @@ a {
   margin-bottom: 8px;
   font-weight: normal;
 }
-
-/* .calendar {
-  width: 75%;
-  float: left;
-} */
 
 form {
   display: flex;
@@ -94,6 +118,17 @@ button.popupBtn {
   box-shadow: 0 1px 0 rgb(9 30 66 / 25%);
 
   color: #545454;
+}
+
+.coursesContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: auto;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 button img {

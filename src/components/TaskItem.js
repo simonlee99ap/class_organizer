@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const TaskItem = props => {
     return (
         <div className="taskItem">
-            { props.task.date } { props.task.name }
+            { props.task.name }
         </div>
     )
 }
