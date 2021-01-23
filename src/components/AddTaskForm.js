@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker'
 import date from 'date-and-time'
 
 import { addTask } from '../reducers/taskReducer'
+import closeImg from '../img/close.png'
 
 const AddTaskForm = (props) => {
     const dispatch = useDispatch()
@@ -25,7 +26,9 @@ const AddTaskForm = (props) => {
         <form onSubmit={handleSubmit}>
             <div className="formHeader">
                 <div>Add a new task</div>
-                <button type="button" onClick={props.close}>close</button>
+                <button type="button" onClick={props.close}>
+                    <img src={closeImg} alt="close" />
+                </button>
             </div>
             <label>
                 Task name

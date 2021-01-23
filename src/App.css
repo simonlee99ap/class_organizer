@@ -26,6 +26,18 @@ a {
   flex-direction: column;
 }
 
+.calendarControl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dateHeader {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 5px;
+}
+
 table {
   border-collapse: collapse;
   table-layout: fixed;

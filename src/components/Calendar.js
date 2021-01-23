@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import CalendarDate from './CalendarDate'
 import date from 'date-and-time'
-import './Calendar.css'
+import '../App.css'
+
+import forwardImg from '../img/forward.png'
+import backwardImg from '../img/backward.png'
 
 const calendarViewDates = 42
 const numRows = 6
@@ -104,10 +107,10 @@ export default class Calendar extends Component {
     render() {
         return (
             <div className="calendar">
-                <div className="row">
-                    <button onClick={ this.decMonth }>left</button>
-                    { this.getDateHeader() }
-                    <button onClick={ this.incMonth }>right</button>
+                <div className="calendarControl">
+                    <button onClick={ this.decMonth }><img src={backwardImg} alt="back" /></button>
+                    <div className="dateHeader">{ this.getDateHeader() }</div>
+                    <button onClick={ this.incMonth }><img src={forwardImg} alt="front" /></button>
                 </div>
                 { this.renderCalendarBody() }
             </div>

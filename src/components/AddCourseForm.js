@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css'
 
 import { addCourse } from '../reducers/courseReducer'
+import closeImg from '../img/close.png'
 
 const AddCourseForm = (props) => {
     const dispatch = useDispatch()
@@ -21,7 +22,9 @@ const AddCourseForm = (props) => {
         <form onSubmit={handleSubmit}>
             <div className="formHeader">
                 <div>Add a new course</div>
-                <button type="button" onClick={props.close}>close</button>
+                <button type="button" onClick={props.close}>
+                    <img src={closeImg} alt="close" />
+                </button>
             </div>
             <label>
                 Course name 
