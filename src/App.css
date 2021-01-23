@@ -53,6 +53,30 @@ a {
   float: left;
 } */
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form > label {
+  margin-bottom: 5px;
+}
+
+.formHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.5em;
+  padding-bottom: 5px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
 button {
   padding: 5px;
   background-color: Transparent;
@@ -75,4 +99,25 @@ button.popupBtn {
 button img {
   height: 1em;
   width: auto;
+}
+
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  width: 50%;
+  padding: 5px;
+}
+.popup-arrow {
+  color: rgb(255, 255, 255);
+}
+[role='tooltip'].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
 }

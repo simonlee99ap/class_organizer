@@ -5,7 +5,7 @@ import date from 'date-and-time'
 
 import { addTask } from '../reducers/taskReducer'
 
-const AddTaskForm = () => {
+const AddTaskForm = (props) => {
     const dispatch = useDispatch()
     const courses = useSelector(state => state.courses)
 
@@ -23,22 +23,27 @@ const AddTaskForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <div className="formHeader">
+                <div>Add a new task</div>
+                <button type="button" onClick={props.close}>close</button>
+            </div>
             <label>
-                Task:
+                Task name
                 <input
                     type="text"
                     value={taskName}
                     onChange={e => setTaskName(e.target.value)} />
             </label>
             <label>
-                Course:
+                Course
                 <select value={courseId} onChange={e => setCourseId(e.target.value)}>
                     { courses.map(course => 
                     <option key={course.id} value={course.id}>{course.name}</option>) }
                 </select>
             </label>
             <label>
-                Date:
+                Due date
+                <br></br>
                 <DatePicker selected={dueDate} onChange={date => setDueDate(date)} />
             </label>
             <input type="submit" value="Submit" />

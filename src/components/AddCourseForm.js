@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import "react-datepicker/dist/react-datepicker.css";
 
 import { addCourse } from '../reducers/courseReducer'
 
-const AddCourseForm = () => {
+const AddCourseForm = (props) => {
     const dispatch = useDispatch()
 
     const [courseText, setCourseText] = useState("")
@@ -18,15 +19,19 @@ const AddCourseForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <div className="formHeader">
+                <div>Add a new course</div>
+                <button type="button" onClick={props.close}>close</button>
+            </div>
             <label>
-                Course: 
+                Course name 
                 <input 
                     type="text" 
                     value={courseText}
                     onChange={e => setCourseText(e.target.value)} />
             </label>
             <label>
-                Color: 
+                Color
                 <input 
                     type="text" 
                     value={colorText}

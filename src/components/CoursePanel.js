@@ -13,10 +13,10 @@ const CoursePanel = () => {
         <div className="coursePanel">
             { courses.map((course) => <CourseItem key={course.id} course={course} />) }
             <Popup trigger={<button className="popupBtn"> + Add Course </button>} modal>
-                <AddCourseForm />
+                {close => <AddCourseForm close={close}/>}
             </Popup>
             <Popup trigger={<button className="popupBtn"> + Add Task </button>} modal>
-                <AddTaskForm />
+            {close => <AddTaskForm close={close}/>}
             </Popup>
         </div>
     )
