@@ -13,3 +13,66 @@ a {
   color: #333;
   text-decoration: none;
 }
+
+.App {
+  display: flex;
+  padding: 5px;
+}
+
+.coursePanel {
+  width: 25%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #ebecf0;
+  color: black;
+}
+
+.courseItem {
+  font-weight: bold;
+  margin-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.courseHeader {
+  margin-bottom: 5px;
+}
+
+.taskItem {
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgb(9 30 66 / 25%);
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+/* .calendar {
+  width: 75%;
+  float: left;
+} */
+
+button {
+  padding: 5px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+button.popupBtn {
+  background-color: #a5a5a5;
+  margin-bottom: 2px;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgb(9 30 66 / 25%);
+
+  color: #545454;
+}
+
+button img {
+  height: 1em;
+  width: auto;
+}

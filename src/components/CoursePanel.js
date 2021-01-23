@@ -10,12 +10,12 @@ const CoursePanel = () => {
     const courses = useSelector(state => state.courses)
 
     return (
-        <div>
+        <div className="coursePanel">
             { courses.map((course) => <CourseItem key={course.id} course={course} />) }
-            <Popup trigger={<button> + Add Course </button>} modal>
+            <Popup trigger={<button className="popupBtn"> + Add Course </button>} modal>
                 <AddCourseForm />
             </Popup>
-            <Popup trigger={<button> + Add Task </button>} modal>
+            <Popup trigger={<button className="popupBtn"> + Add Task </button>} modal>
                 <AddTaskForm />
             </Popup>
         </div>

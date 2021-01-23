@@ -100,7 +100,7 @@ export default class Calendar extends Component {
 
     render() {
         return (
-            <div>
+            <div className="calendar">
                 <div className="row">
                     <button onClick={ this.decMonth }>left</button>
                     { this.getDateHeader() }

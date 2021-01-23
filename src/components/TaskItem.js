@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const TaskItem = props => {
     return (
-        <div>
+        <div className="taskItem">
             { props.task.date } { props.task.name }
         </div>
     )

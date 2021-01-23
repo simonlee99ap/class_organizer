@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 
 import TaskItem from './TaskItem'
+import dropDown from '../img/drop-down.png'
+import dropRight from '../img/drop-right.png'
 
 const CourseItem = props => {
     const [displayMode, setDisplayMode] = useState(true);
@@ -11,9 +13,15 @@ const CourseItem = props => {
     ));
 
     return (
-        <div>
-            <button onClick={() => setDisplayMode(!displayMode)}>btn</button>
-            { props.course.name }
+        <div className="courseItem">
+            <div className="courseHeader">
+                <button onClick={() => setDisplayMode(!displayMode)}>
+                    <img 
+                    src={displayMode ? dropDown : dropRight}
+                    alt="img" />
+                </button>
+                { props.course.name }
+            </div>
             { displayMode && 
              tasks.map(task => <TaskItem key={task.id} task={task} />)
             }
