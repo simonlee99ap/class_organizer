@@ -11,7 +11,8 @@ const AddCourseForm = (props) => {
     const [courseText, setCourseText] = useState("")
     const [colorText, setColorText] = useState("")
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         const addCourseThunk = addCourse(courseText, colorText)
         dispatch(addCourseThunk)
         setCourseText("")

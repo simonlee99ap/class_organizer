@@ -22,12 +22,11 @@ export async function loadCourses(dispatch, getState) {
 export function addCourse(courseName, color) {
     return async function addCourseThunk(dispatch, getState) {
         const newCourse = { name: courseName, color: color }
-        console.log(newCourse)
         const response = await axios.post(
             "http://localhost:8080/courses/",
             newCourse
         )
         console.log(response)
-        dispatch({ type: ADD_COURSE, payload: newCourse })
+        dispatch({ type: ADD_COURSE, payload: response.data })
     }
 }

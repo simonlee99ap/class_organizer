@@ -11,10 +11,13 @@ const AddTaskForm = (props) => {
     const courses = useSelector(state => state.courses)
 
     const [taskName, setTaskName] = useState("")
-    const [courseId, setCourseId] = useState(0)
+    // TODO: add some default class and prevent submission when that default class
+    // is selected
+    const [courseId, setCourseId] = useState(courses[0].id)
     const [dueDate, setDueDate] = useState(new Date())
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         const addTaskThunk = addTask(taskName, courseId, date.format(dueDate, "MMM DD YYYY"))
         dispatch(addTaskThunk)
         setTaskName("")
