@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import PropTypes from 'prop-types'
 import 'react-datepicker/dist/react-datepicker.css'
 
 import { addCourse } from '../reducers/courseReducer'
@@ -17,6 +18,7 @@ const AddCourseForm = (props) => {
         dispatch(addCourseThunk)
         setCourseText("")
         setColorText("")
+        props.close()
     }
 
     return (
@@ -44,6 +46,10 @@ const AddCourseForm = (props) => {
             <input type="submit" value="Submit" />
         </form>
     )
+}
+
+AddCourseForm.propTypes = {
+    close: PropTypes.func.isRequired
 }
 
 export default AddCourseForm

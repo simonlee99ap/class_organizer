@@ -20,6 +20,7 @@ const TaskItemModifyForm = props => {
         e.preventDefault()
         const modifyTaskThunk = modifyTask(taskName, taskItem.finished, courseId, date.format(dueDate, "MMM DD YYYY"), taskItem.id)
         dispatch(modifyTaskThunk)
+        props.close()
     }
 
     return (
@@ -55,7 +56,8 @@ const TaskItemModifyForm = props => {
 }
 
 TaskItemModifyForm.propTypes = {
-    task: PropTypes.object.isRequired
+    task: PropTypes.object.isRequired,
+    close: PropTypes.func.isRequired
 }
 
 export default TaskItemModifyForm

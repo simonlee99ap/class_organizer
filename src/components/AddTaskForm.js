@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import DatePicker from 'react-datepicker'
+import PropTypes from 'prop-types'
 import date from 'date-and-time'
 
 import { addTask } from '../reducers/taskReducer'
@@ -23,6 +24,7 @@ const AddTaskForm = (props) => {
         setTaskName("")
         setCourseId(0)
         setDueDate(new Date())
+        props.close()
     }
 
     return (
@@ -55,6 +57,10 @@ const AddTaskForm = (props) => {
             <input type="submit" value="Submit" />
         </form>
     )
+}
+
+AddTaskForm.propTypes = {
+    close: PropTypes.func.isRequired
 }
 
 export default AddTaskForm
