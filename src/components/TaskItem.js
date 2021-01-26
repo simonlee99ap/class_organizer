@@ -1,11 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Popup from 'reactjs-popup'
+
+import TaskItemModifyForm from './TaskItemModifyForm'
 
 const TaskItem = props => {
     return (
-        <div className="taskItem">
+        <Popup trigger={<div className="taskItem">
             { props.task.name }
-        </div>
+        </div>} modal>
+            {close => <TaskItemModifyForm close={close} task={props.task}/>}
+        </Popup>
     )
 }
 

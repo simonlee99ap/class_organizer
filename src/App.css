@@ -89,6 +89,10 @@ td {
   font-weight: normal;
 }
 
+.taskItem:hover {
+  background-color: gray;
+}
+
 form {
   display: flex;
   flex-direction: column;

@@ -8,11 +8,11 @@ export default function taskReducer(state = initState, action) {
         case NEW_TASK:
             return [...state, action.payload]
         case DELETE_TASK:
-            return state.tasks.filter(task => {
+            return state.filter(task => {
                     return task.id !== action.payload
                 })
         case MODIFY_TASK:
-            return state.tasks.map(task => {
+            return state.map(task => {
                     if (task.id === action.payload.id) return action.payload
                     else return task
                 })
@@ -35,19 +35,19 @@ export function addTask(taskName, courseId, dueDate) {
             "http://localhost:8080/tasks/",
             newTask
         )
-        
+
         dispatch({ type: NEW_TASK, payload: response.data })
     }
 }
 
-// export function modifyTask(taskName, done, courseId, dueDate, id) {
-//     return async function modifyTaskThunk(dispatch, getState) {
-//         const modifiedTask = { name: taskName, finished: done, courseId: courseId, date: dueDate }
-//         const response = await axios.put(
-//             "http://localhost:8080/tasks/" + id,
-//             modifiedTask
-//         )
-//         console.log(response)
-//         dispatch({ type: MODIFY_TASK, payload: modifiedTask })
-//     }
-// }
+export function modifyTask(taskName, done, courseId, dueDate, id) {
+    return async function modifyTaskThunk(dispatch, getState) {
+        const modifiedTask = { name: taskName, finished: done, courseId: courseId, date: dueDate }
+        const response = await axios.put(
+            "http://localhost:8080/tasks/" + id,
+            modifiedTask
+        )
+        
+        dispatch({ type: MODIFY_TASK, payload: response.data })
+    }
+}
