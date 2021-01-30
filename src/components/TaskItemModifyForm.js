@@ -15,10 +15,11 @@ const TaskItemModifyForm = props => {
     const [taskName, setTaskName] = useState(taskItem.name)
     const [courseId, setCourseId] = useState(taskItem.courseId)
     const [dueDate, setDueDate] = useState(date.parse(taskItem.date, "MMM DD YYYY"))
+    const [done, setDone] = useState(taskItem.finished)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const modifyTaskThunk = modifyTask(taskName, taskItem.finished, courseId, date.format(dueDate, "MMM DD YYYY"), taskItem.id)
+        const modifyTaskThunk = modifyTask(taskName, done, courseId, date.format(dueDate, "MMM DD YYYY"), taskItem.id)
         dispatch(modifyTaskThunk)
         props.close()
     }
@@ -45,11 +46,18 @@ const TaskItemModifyForm = props => {
                     <option key={course.id} value={course.id}>{course.name}</option>) }
                 </select>
             </label>
-            <label>
+            <div className="formRowContainer">
+            <label className="column">
                 Due date
-                <br></br>
+                <br />
                 <DatePicker selected={dueDate} onChange={date => setDueDate(date)} />
             </label>
+            <label className="column">
+                Done
+                <br />
+                <input type="checkbox" checked={done} onChange={e => setDone(!done)}></input>
+            </label>
+            </div>
             <input type="submit" value="Submit" />
         </form>
     )

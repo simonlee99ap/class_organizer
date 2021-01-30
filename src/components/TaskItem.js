@@ -7,7 +7,7 @@ import TaskItemModifyForm from './TaskItemModifyForm'
 const TaskItem = props => {
     return (
         <Popup trigger={<div className="taskItem">
-            { props.task.name }
+            <div className="taskItemText" finished={props.task.finished.toString()}>{ props.task.name }</div>
         </div>} modal>
             {close => <TaskItemModifyForm close={close} task={props.task}/>}
         </Popup>
